@@ -70,7 +70,7 @@ function saveDemotivator() {
     let image = document.getElementById("canvas").toDataURL("image/png").replace("image/png", "image/octet-stream");
 
     const link = document.createElement('a');
-    link.download = ""+selectedCanvas.textTop+'_Демотиватор.png';
+    link.download = ""+selectedCanvas.textTop+'_.png';
     link.href = image
     link.click();
     link.delete;
@@ -93,3 +93,20 @@ document.getElementById("color1").addEventListener("input",(event)=>{
 document.getElementById("color2").addEventListener("input",(event)=>{
     document.getElementById("colorTwo").style.backgroundColor = document.getElementById("color2").value;
 });
+
+document.getElementById("list")
+  .addEventListener('wheel', function(event) {
+    if (event.deltaMode == event.DOM_DELTA_PIXEL) {
+      var modifier = 1;
+      // иные режимы возможны в Firefox
+    } else if (event.deltaMode == event.DOM_DELTA_LINE) {
+      var modifier = parseInt(getComputedStyle(this).lineHeight);
+    } else if (event.deltaMode == event.DOM_DELTA_PAGE) {
+      var modifier = this.clientHeight;
+    }
+    if (event.deltaY != 0) {
+      // замена вертикальной прокрутки горизонтальной
+      this.scrollLeft += modifier * event.deltaY;
+      event.preventDefault();
+    }
+  });

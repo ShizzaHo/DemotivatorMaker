@@ -222,6 +222,91 @@ body{
     cursor: pointer;
 }
 
+/* ===== */
+
+.tunelList{
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: #3A3A3A;
+    height: 56px;
+
+    position: absolute;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+
+    padding-right: 4px;
+    padding-left: 4px;
+    gap: 4;
+}
+
+.tunelList .list{
+    position: relative;
+
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.list::-webkit-scrollbar {
+    height: 3px;
+    border-radius: 100px;
+    background-color: #fdfdfd00;
+}
+
+.list::-webkit-scrollbar-thumb {
+    background-color: #ffffff00;
+}
+
+.list:hover::-webkit-scrollbar-thumb {
+    background-color: #ffffff65;
+}
+
+.list .item{
+    min-width: 46px;
+    height: 46px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 4px;
+
+    transition: all 200ms ease-in-out;
+}
+
+
+.list .item:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.addButton{
+    width: 46px;
+    height: 46px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 200ms ease-in-out;
+}
+
+.addButton:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
