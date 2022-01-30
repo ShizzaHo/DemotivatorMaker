@@ -20,6 +20,7 @@ body{
 }
 
 .content{
+    position: relative;
     height: 100vh;
     background-color: #1E1E1E;
     flex-grow: 2;
@@ -197,6 +198,28 @@ body{
 
 .button:hover{
     border-color: rgba(255, 255, 255, 1);
+}
+
+.saveButton{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+
+    width: 32px;
+    height: 32px;
+
+    cursor: pointer;
+}
+
+.backButton{
+    position: absolute;
+    top: 16px;
+    left: 16px;
+
+    width: 32px;
+    height: 32px;
+
+    cursor: pointer;
 }
 
 input::-webkit-inner-spin-button {

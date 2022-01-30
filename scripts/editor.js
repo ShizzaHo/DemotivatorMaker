@@ -66,6 +66,17 @@ file.addEventListener("change", function() {
 
 }, false);
 
+function saveDemotivator() {
+    let image = document.getElementById("canvas").toDataURL("image/png").replace("image/png", "image/octet-stream");
+
+    const link = document.createElement('a');
+    link.download = ""+selectedCanvas.textTop+'_Демотиватор.png';
+    link.href = image
+    link.click();
+    link.delete;
+}
+
+
 function copyConf() {
     prompt('Скопируйте и сохраните JSON код, для дальнейшей вставки', JSON.stringify(selectedCanvas));
 }

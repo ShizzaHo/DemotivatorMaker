@@ -11,8 +11,8 @@ function Demotivator() {
     this.textTopSize = 32,
     this.textBottomSize = 20,
     this.fontText = "Times New Roman",
-    this.sizeW = 420,
-    this.sizeH = 420,
+    this.sizeW = 512,
+    this.sizeH = 512,
     this.sizeAutoMode = false,
     this.ImageAlign = "cover",
     this.offset = 28
