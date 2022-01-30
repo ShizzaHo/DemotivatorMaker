@@ -16,6 +16,7 @@ function Demotivator() {
     this.sizeAutoMode = false,
     this.ImageAlign = "cover",
     this.offset = 28
+    this.image = "";
 }
 
 function setDevotivatorSize(){

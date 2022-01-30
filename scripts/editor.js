@@ -49,7 +49,31 @@ function rBottomText() {
     document.getElementById("sizeBottom").focus();
 }
 
+function selectImage() {
+    document.getElementById("imageSelected").click();
+}
 
+let file = document.getElementById("imageSelected");
+file.addEventListener("change", function() {
+
+    let fReader = new FileReader();
+    fReader.readAsDataURL(file.files[0]);
+    fReader.onloadend = function(event){
+        document.getElementById("demImage").src = event.target.result;
+        selectedCanvas.image = event.target.result;
+        document.getElementById("selectedImgText").textContent = file.files[0].name;
+    }
+
+}, false);
+
+function copyConf() {
+    prompt('Скопируйте и сохраните JSON код, для дальнейшей вставки', JSON.stringify(selectedCanvas));
+}
+
+function setConf() {
+    let json = prompt('Введите JSON код', "");
+    selectedCanvas = JSON.parse(json);
+}
 
 document.getElementById("color1").addEventListener("input",(event)=>{
     document.getElementById("colorOne").style.backgroundColor = document.getElementById("color1").value;
@@ -58,5 +82,3 @@ document.getElementById("color1").addEventListener("input",(event)=>{
 document.getElementById("color2").addEventListener("input",(event)=>{
     document.getElementById("colorTwo").style.backgroundColor = document.getElementById("color2").value;
 });
-
-
