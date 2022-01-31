@@ -3,12 +3,7 @@ selectedCanvas = dem;
 
 window.onload = function() {
     setDevotivatorSize();
-
     document.getElementById("colorTwo").style.backgroundColor = "#FFFFFF";
-}
-
-function createDemotivator() {
-    window.location = "defaultdemotivator.html";
 }
 
 setInterval(function() {
@@ -27,32 +22,6 @@ setInterval(function() {
 
 
 
-
-
-
-
-
-
-function colorpickerOne() {
-    document.getElementById("color1").click();
-}
-
-function colorpickerTwo() {
-    document.getElementById("color2").click();
-}
-
-function rTopText() {
-    document.getElementById("sizeTop").focus();
-}
-
-function rBottomText() {
-    document.getElementById("sizeBottom").focus();
-}
-
-function selectImage() {
-    document.getElementById("imageSelected").click();
-}
-
 let file = document.getElementById("imageSelected");
 file.addEventListener("change", function() {
 
@@ -65,26 +34,6 @@ file.addEventListener("change", function() {
     }
 
 }, false);
-
-function saveDemotivator() {
-    let image = document.getElementById("canvas").toDataURL("image/png").replace("image/png", "image/octet-stream");
-
-    const link = document.createElement('a');
-    link.download = ""+selectedCanvas.textTop+'_.png';
-    link.href = image
-    link.click();
-    link.delete;
-}
-
-
-function copyConf() {
-    prompt('Скопируйте и сохраните JSON код, для дальнейшей вставки', JSON.stringify(selectedCanvas));
-}
-
-function setConf() {
-    let json = prompt('Введите JSON код', "");
-    selectedCanvas = JSON.parse(json);
-}
 
 document.getElementById("color1").addEventListener("input",(event)=>{
     document.getElementById("colorOne").style.backgroundColor = document.getElementById("color1").value;
@@ -109,4 +58,5 @@ document.getElementById("list")
       this.scrollLeft += modifier * event.deltaY;
       event.preventDefault();
     }
-  });
+});
+

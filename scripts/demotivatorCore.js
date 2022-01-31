@@ -52,3 +52,13 @@ function reDraw(){
     ctx.font = selectedCanvas.textBottomSize+"px "+selectedCanvas.fontText;
     ctx.fillText(selectedCanvas.textBottom, topTextW, topTextH + 40);
 }
+
+function getItemDem() {
+    return `
+    
+        <div class="item" id="***1">
+            ***2
+        </div>
+
+    `
+}
