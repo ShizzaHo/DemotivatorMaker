@@ -53,11 +53,11 @@ function reDraw(){
     ctx.fillText(selectedCanvas.textBottom, topTextW, topTextH + 40);
 }
 
-function getItemDem() {
+function getItemDem(num) {
     return `
     
-        <div class="item" id="***1">
-            ***2
+        <div class="item" id="list_${num}" onclick="changeDem(${num})">
+            ${num+1}
         </div>
 
     `

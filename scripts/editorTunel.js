@@ -1,13 +1,87 @@
-let dem = new Demotivator();
-selectedCanvas = dem;
+let dem = [];
 
 window.onload = function() {
+    createOneDemotivator();
+
     setDevotivatorSize();
     document.getElementById("colorTwo").style.backgroundColor = "#FFFFFF";
 }
 
+function createOneDemotivator() {
+    dem.push(new Demotivator());
+    
+    if(dem.length-1 != 0){
+        dem[dem.length-1].color1 = document.getElementById("color1").value;
+        dem[dem.length-1].color2 = document.getElementById("color2").value;
+        dem[dem.length-1].textTop = document.getElementById("topText").value;
+        dem[dem.length-1].textBottom = document.getElementById("bottomText").value;
+        dem[dem.length-1].textTopSize = document.getElementById("sizeTop").value;
+        dem[dem.length-1].textBottomSize = document.getElementById("sizeBottom").value;
+        dem[dem.length-1].sizeW = document.getElementById("sizeW").value;
+        dem[dem.length-1].sizeH = document.getElementById("sizeH").value;
+    }
+    selectedCanvas = dem[dem.length-1];
+
+    remakeLists()
+}
+
+function remakeLists() {
+    let list = document.getElementById("list");
+    list.innerHTML = "";
+    for(let i = 0; i < dem.length; i++){
+        list.innerHTML += getItemDem(i);
+        if(dem[i] == selectedCanvas){
+            changeColorItem(i);
+        }
+    }
+}
+
+function changeDem(num) {
+    selectedCanvas = dem[num];
+
+    document.getElementById("color1").value = selectedCanvas.color1;
+    document.getElementById("color2").value = selectedCanvas.color2;
+    document.getElementById("topText").value = selectedCanvas.textTop;
+    document.getElementById("bottomText").value = selectedCanvas.textBottom;
+    document.getElementById("sizeTop").value = selectedCanvas.textTopSize;
+    document.getElementById("sizeBottom").value = selectedCanvas.textBottomSize;
+    document.getElementById("sizeW").value = selectedCanvas.sizeW;
+    document.getElementById("sizeH").value = selectedCanvas.sizeH;
+
+    document.getElementById("demImage").src = selectedCanvas.image;
+
+    changeColorItem(num);
+
+    updateDem()
+}
+
+function changeColorItem(num) {
+    let item = document.getElementById("list_"+num);
+
+    for(let i = 0; i < dem.length; i++){
+        let itemt = document.getElementById("list_"+i);
+        itemt.classList.remove("item__selected");
+    }
+
+    item.classList.add("item__selected");
+}
+
+function deleteSelected() {
+    for(let i = 0; i < dem.length; i++){
+        if(dem[i] == selectedCanvas){
+            dem.slice(i);
+            remakeLists();
+        }
+    }
+}
+
 setInterval(function() {
 
+    updateDem()
+    
+}, 1000);
+
+function updateDem() {
     selectedCanvas.color1 = document.getElementById("color1").value;
     selectedCanvas.color2 = document.getElementById("color2").value;
     selectedCanvas.textTop = document.getElementById("topText").value;
@@ -17,10 +91,7 @@ setInterval(function() {
     selectedCanvas.sizeW = document.getElementById("sizeW").value;
     selectedCanvas.sizeH = document.getElementById("sizeH").value;
     setDevotivatorSize()
-    
-}, 1000);
-
-
+}
 
 let file = document.getElementById("imageSelected");
 file.addEventListener("change", function() {
