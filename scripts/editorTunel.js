@@ -1,4 +1,5 @@
 let dem = [];
+let noupdateState = false;
 
 window.onload = function() {
     createOneDemotivator();
@@ -79,14 +80,16 @@ function deleteSelected() {
 
 setInterval(function() {
 
-    if(selectedCanvas != undefined){
-        canvas.style.display = "block";
-        document.getElementById("warningText").style.display = "none";
-
-        updateDem()
-    } else {
-        canvas.style.display = "none";
-        document.getElementById("warningText").style.display = "block";
+    if(noupdateState == false){
+        if(selectedCanvas != undefined){
+            canvas.style.display = "block";
+            document.getElementById("warningText").style.display = "none";
+    
+            updateDem()
+        } else {
+            canvas.style.display = "none";
+            document.getElementById("warningText").style.display = "block";
+        }
     }
     
 }, 100);
@@ -140,3 +143,25 @@ document.getElementById("list")
       event.preventDefault();
     }
 });
+
+function pastBackDem() {
+    for(let i = 0; i < dem.length; i++){
+        if(dem[i] == selectedCanvas){
+            if (i == 0) {
+                alert("За этим демотиватором ничего нет :Р");
+            } else {
+                noupdateState = true;
+                selectedCanvas = dem[i-1];
+                document.getElementById("demImage").src = selectedCanvas.image;
+                setDevotivatorSize()
+                let image = canvas.toDataURL("image/png");
+                document.getElementById("demImage").src = image;
+                selectedCanvas = dem[i];
+                selectedCanvas.image = image; 
+                setDevotivatorSize()
+                noupdateState = false;
+            }
+            
+        }
+    }
+}

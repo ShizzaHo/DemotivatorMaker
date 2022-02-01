@@ -17,6 +17,13 @@ body{
     background-color: #2E2E2E;
     flex-grow: 1;
     color: white;
+
+    overflow: auto;
+}
+
+.menu::-webkit-scrollbar {
+    visibility: hidden;
+    width: 0px;
 }
 
 .content{

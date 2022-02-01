@@ -35,6 +35,13 @@
         <div class="page">
             <h3>Настройки</h3>
             <h4>Основное</h4>
+            <p>Тунельная настройка</p>
+            <button class="button" onclick="pastBackDem()">Вставить предыдущий демотиватор</button>
+            <div class="sizeBox">
+                <input type="number" class="input" id="demnum" placeholder="Номер" value="0">
+                <button class="button" onclick="pastDem()" style="height: 42px;">Вставить выбранный</button>
+            </div>
+            <p>Основная настройка</p>
             <button class="imageSelector" onclick="selectImage()">Выбрать картинку
                 <label id="selectedImgText">Картинка не выбрана</label>
                 <input type="file" name="imageSelect" id="imageSelected" accept="image/*">
