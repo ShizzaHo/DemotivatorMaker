@@ -165,3 +165,24 @@ function pastBackDem() {
         }
     }
 }
+
+function pastDem() {
+    let num = document.getElementById("demnum").value;
+    let selectedCanvasSaver;
+
+    if(dem.length < num){
+        alert("такого демотиватора не существует")
+    } else{
+        selectedCanvasSaver = selectedCanvas;
+        noupdateState = true;
+        selectedCanvas = dem[num];
+        document.getElementById("demImage").src = selectedCanvas.image;
+        setDevotivatorSize()
+        let image = canvas.toDataURL("image/png");
+        document.getElementById("demImage").src = image;
+        selectedCanvas = selectedCanvasSaver;
+        selectedCanvas.image = image; 
+        setDevotivatorSize()
+        noupdateState = false;
+    }
+}
