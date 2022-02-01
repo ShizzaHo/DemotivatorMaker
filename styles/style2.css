@@ -253,6 +253,8 @@ body{
     flex-wrap: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
+
+    scroll-behavior: smooth;
 }
 
 .list::-webkit-scrollbar {
@@ -332,6 +334,12 @@ h4{
     margin-bottom: 10px;
     font-weight: 300;
     font-size: 26px;
+}
+
+.warningText{
+    position: absolute;
+    color: rgb(255, 255, 255);
+    display: none;
 }
 
 /* === */

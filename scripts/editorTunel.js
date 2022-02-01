@@ -19,6 +19,7 @@ function createOneDemotivator() {
         dem[dem.length-1].textBottomSize = document.getElementById("sizeBottom").value;
         dem[dem.length-1].sizeW = document.getElementById("sizeW").value;
         dem[dem.length-1].sizeH = document.getElementById("sizeH").value;
+        dem[dem.length-1].image = selectedCanvas.image;
     }
     selectedCanvas = dem[dem.length-1];
 
@@ -69,7 +70,8 @@ function changeColorItem(num) {
 function deleteSelected() {
     for(let i = 0; i < dem.length; i++){
         if(dem[i] == selectedCanvas){
-            dem.slice(i);
+            dem.splice(i,1);
+            selectedCanvas = undefined;
             remakeLists();
         }
     }
@@ -77,9 +79,17 @@ function deleteSelected() {
 
 setInterval(function() {
 
-    updateDem()
+    if(selectedCanvas != undefined){
+        canvas.style.display = "block";
+        document.getElementById("warningText").style.display = "none";
+
+        updateDem()
+    } else {
+        canvas.style.display = "none";
+        document.getElementById("warningText").style.display = "block";
+    }
     
-}, 1000);
+}, 100);
 
 function updateDem() {
     selectedCanvas.color1 = document.getElementById("color1").value;
