@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="styles/libs/animate.css">
+    <script src="scripts/libs/FileSaver/FileSaver.js"></script>
+    <script src="scripts/libs/jszip/jszip.js"></script>
     
     <title>Создатель демотиваторов - Тунельный демотиватор</title>
     <link rel="stylesheet" href="styles/style2.css">
@@ -18,7 +20,7 @@
         <canvas id="canvas"></canvas>  
         <p class="warningText" id="warningText">Выберите демотиватор для продолженяи работы</p>
         <img src="styles/icons/back.svg" class="backButton">
-        <img src="styles/icons/save.svg" class="saveButton" onclick="saveDemotivator();">
+        <img src="styles/icons/save.svg" class="saveButton" onclick="tunelSaveButton();">
 
         <div class="tunelList">
             <div class="list" id="list">
@@ -88,9 +90,9 @@
         </div>
     </div>
     
+    <script src="scripts/editorTunel.js"></script>
     <script src="scripts/demotivatorCore.js"></script>
     <script src="scripts/interfaceEventer.js"></script>
-    <script src="scripts/editorTunel.js"></script>
     <img id="demImage" src="">
 </body>
 </html>

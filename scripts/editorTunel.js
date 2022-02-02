@@ -186,3 +186,37 @@ function pastDem() {
         noupdateState = false;
     }
 }
+
+function tunelSaveButton() {
+    noupdateState = true;
+    selectedCanvasSaver = selectedCanvas;
+    let demotivators = [];
+    
+    for(let i = 0; i < dem.length; i++){
+        console.log("===");
+        console.log("Рендеринг "+ i + " демотиватора");
+        changeDem(i)
+        document.getElementById("demImage").src = selectedCanvas.image;
+        setDevotivatorSize()
+        let image = canvas.toDataURL("image/png").replace(/^data:image\/(png|jpg);base64,/, "");
+        demotivators.push(image);
+        console.log("===");
+    }
+
+    console.log(demotivators);
+
+    var zip = new JSZip();
+    var img = zip.folder("Демотиваторы");
+    
+    for (let i = 0; i < demotivators.length; i++) {
+        img.file("Демотиватор_"+i+".png", demotivators[i], {base64: true});
+    }
+
+    zip.generateAsync({type:"blob"})
+    .then(function(content) {
+        saveAs(content, "Демотиваторы.zip");
+    });
+
+    noupdateState = false;
+    selectedCanvas = selectedCanvasSaver;
+}

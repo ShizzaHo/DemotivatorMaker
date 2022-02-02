@@ -45,3 +45,4 @@ function setConf() {
     selectedCanvas = JSON.parse(json);
 }
 //#endregion
+
