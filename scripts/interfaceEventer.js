@@ -46,3 +46,6 @@ function setConf() {
 }
 //#endregion
 
+function backButton() {
+    window.location = "index.html";
+}
